@@ -17,7 +17,7 @@ const app = express();
 const PORT = process.env.PORT ;
 
 const corsOptions = {
-    origin: 'https://mcq-app-frontend.netlify.app',  // Allow only this origin
+    origin: '',  // Allow only this origin
     methods: ['GET', 'POST', 'PUT', 'DELETE'],     // Allow specific methods
     allowedHeaders: ['Content-Type', 'Authorization'],  // Allow specific headers
   };
