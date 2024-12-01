@@ -18,7 +18,7 @@ const EditExam = () => {
   useEffect(() => {
     const fetchExamData = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/exams/${id}`);
+        const response = await axios.get(`exams/${id}`);
         const examData = response.data;
         setTitle(examData.exam[0].title);
         setStartTime(examData.exam[0].start_time);
@@ -65,11 +65,11 @@ const EditExam = () => {
     
 
     // Send this updatedExamData to the backend
-    const response = await axios.put(`http://localhost:5000/exams/update/${examId}`, updatedExamData);
+    const response = await axios.put(`exams/update/${examId}`, updatedExamData);
     
 
     try {
-      const response = await axios.put(`http://localhost:5000/exams/update/${examId}`, updatedExamData);
+      const response = await axios.put(`exams/update/${examId}`, updatedExamData);
       if (response.status === 200) {
         alert('Exam updated successfully!');
         navigate('/dashboard'); // Navigate to the dashboard after successful update
@@ -86,7 +86,7 @@ const EditExam = () => {
       setQuestions(updatedQuestions);
 
       // Optionally: make a request to update the exam's questions in the database after removal
-      await axios.put(`http://localhost:5000/exams/update/${examId}`, { questions: updatedQuestions });
+      await axios.put(`exams/update/${examId}`, { questions: updatedQuestions });
     } catch (error) {
       console.error('Error removing question:', error);
     }

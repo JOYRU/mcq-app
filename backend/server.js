@@ -13,16 +13,16 @@ const app = express();
 // const PORT = process.env.PORT || 5010;
 const PORT = 5000 ;
 
-// const corsOptions = {
-//     origin: 'http://localhost:5173',  // Allow only this origin
-//     methods: ['GET', 'POST', 'PUT', 'DELETE'],     // Allow specific methods
-//     allowedHeaders: ['Content-Type', 'Authorization'],  // Allow specific headers
-//   };
+const corsOptions = {
+    origin: 'http://localhost:5173',  // Allow only this origin
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],     // Allow specific methods
+    allowedHeaders: ['Content-Type', 'Authorization'],  // Allow specific headers
+  };
   
-//   // Enable CORS with the specified options
-//   app.use(cors(corsOptions));
-//app.use(cors())
-app.use(cors());
+  // Enable CORS with the specified options
+  app.use(cors(corsOptions));
+app.use(cors())
+//app.use(cors());
 app.use(bodyParser.json());
 
 //  const mongodbURL = process.env.mongodbURL ; 

@@ -26,7 +26,7 @@ const ExamForm = () => {
     };
 
     try {
-      const response = await axios.post('http://localhost:5000/exams/add', examData);
+      const response = await axios.post('exams/add', examData);
       setExamId(response.data._id);
       startCountdown(timeDuration);
     } catch (error) {
@@ -42,7 +42,7 @@ const ExamForm = () => {
     //console.log(examId) ; 
 
     try {
-      const response = await axios.get('http://localhost:5000/questions/random/questions', {
+      const response = await axios.get('questions/random/questions', {
         params: {
           subject: subject,
           quantity: randomQuestionsCount,

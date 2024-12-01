@@ -98,7 +98,7 @@ const ExamCard = () => {
         //     "Authorization": 'Bearer ' + localStorage.getItem('token'),
         //   }
         // })
-        const response = await axios.get('http://localhost:5000/exams');
+        const response = await axios.get('exams');
 
         if (response.data.success) {
           setExams(response.data.exams);

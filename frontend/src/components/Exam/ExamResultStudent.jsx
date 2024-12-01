@@ -13,7 +13,7 @@ const ExamResultStudent = () => {
       const token = localStorage.getItem('token') ;
       try {
        // console.log(token)
-        const response = await axios.get(`http://localhost:5000/exams/generate/result`,{ 
+        const response = await axios.get(`exams/generate/result`,{ 
             headers:{
               'Authorization':`Bearer ${token}`,
               'Content-Type':'application/json'

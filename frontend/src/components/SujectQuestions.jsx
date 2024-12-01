@@ -16,7 +16,7 @@ const [showExplanations, setShowExplanations] = useState({});
       try {
         // Fetch exam details and questions from the API
        
-        const response = await axios.get('http://localhost:5000/questions/subject/question',{
+        const response = await axios.get('questions/subject/question',{
           params: {
             subject: subject
            

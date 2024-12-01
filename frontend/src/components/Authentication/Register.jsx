@@ -28,7 +28,7 @@ const Register = () => {
       };
 
         try {
-            const response = await axios.post('http://localhost:5000/auth/register',formData);
+            const response = await axios.post('auth/register',formData);
            if(response.data.success){
             navigate('/login')
            }

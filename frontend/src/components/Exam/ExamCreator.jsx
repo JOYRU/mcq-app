@@ -27,7 +27,7 @@ const ExamCreator = () => {
         if (subject.questions > 0) {
           //Fetch random questions from the backend API
           console.log(subjects)
-          const response = await axios.get('http://localhost:5000/exams/generate-questions', {
+          const response = await axios.get('exams/generate-questions', {
             params: { subject: subject.name, quantity: subject.questions },
           });
           console.log(response) ;

@@ -15,7 +15,7 @@ const ExamResultTeacher = () => {
     // Fetch exams
     const fetchExams = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/exams");
+        const response = await axios.get("exams");
         
         if (response.data.success) {
           const examsData = response.data.exams;  // assuming your backend sends an array of exams

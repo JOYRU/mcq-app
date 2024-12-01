@@ -17,8 +17,8 @@ useEffect(() => {
   const fetchExamDetails = async () => {
     try {
       // Fetch exam details and questions from the API
-      const examResponse = await axios.get(`http://localhost:5000/exams/${id}`);
-      const questionsResponse = await axios.get(`http://localhost:5000/questions/${id}`);
+      const examResponse = await axios.get(`exams/${id}`);
+      const questionsResponse = await axios.get(`questions/${id}`);
       
       if (examResponse.data.success && questionsResponse.data.success) {
         setExam(examResponse.data.exam);

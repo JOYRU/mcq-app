@@ -10,7 +10,7 @@ const ExamResultExamId = () => {
   useEffect(() => {
     const fetchExamDetails = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/exams/exam-result-teacher/${id}`);
+        const response = await axios.get(`exams/exam-result-teacher/${id}`);
         console.log(response.data.examResult)
         setResult(response.data.examResult); // Update state with fetched data
       } catch (error) {

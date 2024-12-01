@@ -25,7 +25,7 @@ const ExamDetails = () => {
 
       try {
       ///  const response = await axios.get(`http://localhost:5000/questions/${id}`);
-        const response2 = await axios.get(`http://localhost:5000/exams/${id}`);
+        const response2 = await axios.get(`exams/${id}`);
         //console.log(response)  ; 
        // console.log(response2.data.exam[0].questions)  ; 
         
@@ -93,7 +93,7 @@ const ExamDetails = () => {
      console.log(totalScore)
      console.log("before exam result call") ; 
 
-      const response =  await axios.post('http://localhost:5000/exams/exam-result',{totalScore,id},
+      const response =  await axios.post('exams/exam-result',{totalScore,id},
         {
           headers:{
           'Authorization':`Bearer ${token}`,

@@ -21,7 +21,7 @@ const QuestionForm = () => {
     const fetchExams = async()=>{
       try{
       
-          const response = await axios.get('http://localhost:5000/exams')
+          const response = await axios.get('exams')
           
           if(response.data.success){
            // console.log(response.data.departments)
@@ -57,7 +57,7 @@ fetchExams() ;
 
     try {
       //const response = await axios.post('/api/questions', questionData);
-       const response =  await axios.post('http://localhost:5000/questions/add',questionData );
+       const response =  await axios.post('questions/add',questionData );
       console.log('Question submitted:', response.data);
       // Reset form fields after successful submission
       setTitle('');
