@@ -7,11 +7,14 @@ import cookieParser from 'cookie-parser'
 import questionRouter from "./src/router/QuestionRouter.js";
 import examRouter from "./src/router/ExamRouter.js";
 import authRouter from "./src/router/AuthRouter.js";
+ import dotenv from 'dotenv';
+ dotenv.config(); 
 
 
 const app = express();
 // const PORT = process.env.PORT || 5010;
-const PORT = 5000 ;
+//const PORT = 5000 ;
+const PORT = process.env.PORT ;
 
 const corsOptions = {
     origin: 'http://localhost:5173',  // Allow only this origin
@@ -21,12 +24,13 @@ const corsOptions = {
   
   // Enable CORS with the specified options
   app.use(cors(corsOptions));
-app.use(cors())
+//app.use(cors())
 //app.use(cors());
 app.use(bodyParser.json());
 
 //  const mongodbURL = process.env.mongodbURL ; 
- const mongodbURL = "mongodb+srv://joycseru:f01765711177@cluster0.l9t1yml.mongodb.net/mcq-app2"  ; 
+ //const mongodbURL = "mongodb+srv://joycseru:f01765711177@cluster0.l9t1yml.mongodb.net/mcq-app2"  ; 
+ //const mongodbURL = "mongodb+srv://joycseru:f01765711177@cluster0.l9t1yml.mongodb.net/mcq-app2"  ; 
 
  app.use('/questions',questionRouter)
  app.use('/exams',examRouter)
@@ -37,7 +41,7 @@ app.use(bodyParser.json());
  app.listen(PORT,async()=>{   
     // console.log('server is running on port') ; 
      console.log(`Server is running on http://localhost:${PORT}`);   
-     await mongoose.connect(mongodbURL) ; 
+     await mongoose.connect(process.env.mongodbURL) ; 
     //connectDB() ; 
      console.log('Connection to db Successfully established') ;
  })

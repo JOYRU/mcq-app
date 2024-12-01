@@ -2,18 +2,14 @@
 import express from 'express';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-
 import User from '../models/User.js'; // Adjust the path as needed
-
+import dotenv from 'dotenv';
+dotenv.config(); 
 // import nodemailer from 'nodemailer';
 // import dotenv from 'dotenv';
 // import helmet from 'helmet';
 // import cors from 'cors';
 // import rateLimit from 'express-rate-limit';
-
-
-
-
 
 const Register =async(req,res,next)=>{
 
@@ -38,7 +34,7 @@ const Register =async(req,res,next)=>{
 };
 const Login =async(req,res,next)=>{
 
-    const  JWT_SECRET_KEY= 'secretKeyMustHave Value' ; 
+    //const  JWT_SECRET_KEY= 'secretKeyMustHave Value' ; 
    // const [user, setUser] = useState(null);
 
         const { email, password } = req.body;
@@ -51,7 +47,7 @@ const Login =async(req,res,next)=>{
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) return res.status(400).json({ message: 'Invalid credentials' });
     
-        const token = jwt.sign({ id: user._id,role:user.role}, JWT_SECRET_KEY, { expiresIn: '1h' });
+        const token = jwt.sign({ id: user._id,role:user.role}, process.env.JWT_SECRET_KEY, { expiresIn: '1h' });
          
          return res.json({ token,message:'User lonin Successfully' });
        //   setUser({ token }); 

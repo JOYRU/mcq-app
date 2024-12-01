@@ -42,7 +42,7 @@ const ExamForm = () => {
     //console.log(examId) ; 
 
     try {
-      const response = await axios.get('questions/random/questions', {
+      const response = await axios.get("questions/random/questions", {
         params: {
           subject: subject,
           quantity: randomQuestionsCount,

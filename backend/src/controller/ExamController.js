@@ -2,6 +2,8 @@ import Exam from "../models/Exam.js";
 import Question from "../models/Question.js";
 import Result from "../models/Result.js";
 import jwt from 'jsonwebtoken'
+import dotenv from 'dotenv';
+dotenv.config(); 
 
 
 const addExam =async(req,res,next)=>{
@@ -44,14 +46,14 @@ const updatedExamData = async(req,res,next)=>{
 const examResult = async(req,res,next)=>{
   const {totalScore,id} = req.body ; 
   //console.log(id) ; 
-  const  JWT_SECRET_KEY= 'secretKeyMustHave Value' ; 
+  //const  JWT_SECRET_KEY= 'secretKeyMustHave Value' ; 
   
   const token = req.headers['authorization'].split(' ')[1] ; 
   if(!token){
     return res.status(401).json({message: 'Token missing or invalid'}) ; 
   }
 
-  const decoded = jwt.verify(token,JWT_SECRET_KEY) ; 
+  const decoded = jwt.verify(token,process.env.JWT_SECRET_KEY) ; 
   const userId = decoded.id ; 
 
   try{   
@@ -85,14 +87,14 @@ const examResultTeacher = async(req,res,next)=>{
 
 const studentExamResult = async(req,res,next)=>{
    //const{id} = req.params ; 
-  const  JWT_SECRET_KEY= 'secretKeyMustHave Value' ; 
+  //const  JWT_SECRET_KEY= 'secretKeyMustHave Value' ; 
 
   const token = req.headers['authorization'].split(' ')[1] ; 
   if(!token){
     return res.status(401).json({message: 'Token missing or invalid'}) ; 
   }
   
-  const decoded = jwt.verify(token,JWT_SECRET_KEY) ; 
+  const decoded = jwt.verify(token,process.env.JWT_SECRET_KEY) ; 
   const userId = decoded.id ; 
 
   try{

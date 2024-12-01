@@ -3,9 +3,6 @@ import Exam from "../models/Exam.js";
 import mongoose from "mongoose";
 
 const addQuestion =async(req,res,next)=>{
-   
-
-
     const { title, options, correctAnswer, exam_id, subject } = req.body;
     try {
       const newQuestion = new Question({
@@ -24,9 +21,6 @@ const addQuestion =async(req,res,next)=>{
       
       // Save the updated exam document
       await exam.save();
-
-
-
       res.status(201).json(newQuestion);
     } catch (error) {
       console.error('Error saving question:', error);
